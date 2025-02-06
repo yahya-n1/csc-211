@@ -1,0 +1,35 @@
+﻿// Generate a random number between 1 and 10
+const randomNumber = Math.floor(Math.random() * 10) + 1;
+let attempts = 0;
+const maxAttempts = 5;
+
+
+console.log("Welcome to the guessing game! Try to guess the number between 1 and 10.");
+
+
+// Loop until the user guesses correctly or runs out of attempts
+while (attempts < maxAttempts) {
+    // Prompt the user to input their guess
+    const userGuess = parseInt(prompt("Enter your guess:"));
+
+
+    // Increment the number of attempts
+    attempts++;
+
+
+    // Check the guess
+    if (userGuess === randomNumber) {
+        console.log("Congratulations! You've guessed the correct number.");
+        break;
+    } else if (userGuess > randomNumber) {
+        console.log("Too high, try again.");
+    } else {
+        console.log("Too low, try again.");
+    }
+
+
+    // If max attempts are reached, end the game and reveal the number
+    if (attempts === maxAttempts) {
+        console.log(`Sorry, you've run out of attempts. The correct number was ${randomNumber}.`);
+    }
+}
