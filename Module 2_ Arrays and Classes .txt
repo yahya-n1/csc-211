@@ -1,0 +1,100 @@
+﻿1. Bullet points
+-In order to guarantee functionality and maintainability, great software starts with a strong design.
+-Before coding, developers can better plan and organize programs with the use of object-oriented design (OOD).
+-Important ideas in object-oriented design include:
+focuses on dissecting concepts into parts that can be reused and maintained.
+Objects, classes, abstraction, inheritance, and other key terminology are introduced.
+-The interactive and enjoyable nature of the course facilitates participants' rapid development of OOD skills.
+-Developers are taught how to use UML to map out and depict class structures.
+-UML helps visualize system requirements and design classes based on use cases.
+-Conversion to Code:
+After the design is complete, object-oriented programming languages such as Python, Java, C#, or Ruby can be used to turn it into code.
+-Before creating any code, give them the fundamental information they need to create software that is organized, maintainable, and scalable.
+
+
+
+
+2. What is the benefit of using an array?
+Cost-effective storage: Arrays help you organize and read your code more easily by storing several values of the same type in a single variable. Rather to creating unique variables for each object, you can store several values of the same type in an array.
+Constant size: after it is constructed, an array's length remains constant. This can be useful if you know ahead of time how many elements you want.
+Adding or modifying records is simple with arrays because any element can be retrieved using an index.
+Arrays are usually faster than other data structures for accessing and changing elements because they are stored in contiguous memory locations, which makes caching easier.
+
+
+3. What is the benefit of creating objects and classes?
+Encapsulation: Training and objects aid in the organization of crucial documents and methods. For managing and arranging big bundles, that is helpful. There are methods for effectively exposing required functionalities while obscuring internal implementation knowledge.
+Reusability: After a category has been established, it can be used to generate several objects with comparable functions but most likely different states.
+The items and instructions make it easier to maintain and update the codebase. Numerous changes can be done in one location, which lowers the possibility of issues and inconsistencies.
+Dividing complex problems into smaller, more manageable components improves code modularity, readability, and testability.
+Training boosts the size, flexibility, and adaptability of code, enabling the item-oriented concepts of inheritance and polymorphism.
+
+
+
+
+
+
+4. import java.util.ArrayList;
+import java.util.List;
+
+
+public class Bank {
+    private double amount;  // Account balance
+    private List<Double> interactions;  // Keeps track of deposits and withdrawals
+    
+    // Constructor
+    public Bank(double initialAmount) {
+        this.amount = initialAmount;
+        this.interactions = new ArrayList<>();
+    }
+    
+    // Deposit method - Adds money to the account
+    public void deposit(double depositAmount) {
+        amount += depositAmount;
+        interactions.add(depositAmount);  // Store deposit as positive
+    }
+    
+    // Withdraw method - Subtracts money from the account
+    public void withdraw(double withdrawalAmount) {
+        if (amount >= withdrawalAmount) {
+            amount -= withdrawalAmount;
+            interactions.add(-withdrawalAmount);  // Store withdrawal as negative
+        } else {
+            System.out.println("Insufficient funds for withdrawal.");
+        }
+    }
+    
+    // Method to print the list of all interactions (deposits and withdrawals)
+    public void listInteractions() {
+        System.out.println("All Transactions:");
+        for (Double interaction : interactions) {
+            if (interaction > 0) {
+                System.out.println("Deposit: $" + interaction);
+            } else {
+                System.out.println("Withdrawal: $" + Math.abs(interaction));
+            }
+        }
+    }
+    
+    // Getter for current amount (balance)
+    public double getAmount() {
+        return amount;
+    }
+
+
+    public static void main(String[] args) {
+        // Create a new Bank object with an initial amount
+        Bank myBank = new Bank(1000.00);
+        
+        // Perform some deposits and withdrawals
+        myBank.deposit(500.00);    // Deposit $500
+        myBank.withdraw(200.00);   // Withdraw $200
+        myBank.deposit(300.00);    // Deposit $300
+        myBank.withdraw(100.00);   // Withdraw $100
+        
+        // Print all the transactions
+        myBank.listInteractions();
+        
+        // Print the final balance
+        System.out.println("Final balance: $" + myBank.getAmount());
+    }
+}
