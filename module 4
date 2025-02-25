@@ -1,0 +1,118 @@
+1)
+Overview of the Course:
+Teacher: Hodge, Kathryn
+Subject: Fundamentals of Java's Object-Oriented Programming (OOP)
+Focus: Using OOP principles to write Java code that is safe, scalable, and simpler to debug.
+What You'll Discover:
+Comprehending Java OOP Principles:
+
+From the first file you generate, discover how Java incorporates object-oriented principles.
+Use OOP ideas like constructors, instances, and classes to represent actual things in code.
+Real-World Examples:
+
+To illustrate how OOP functions in Java, the course uses real-world examples rather than theoretical ideas.
+Discover how to properly use Java's OOP principles to structure programs.
+Behind Java's Scenes:
+
+Learn how Java implements OOP concepts in the background to build more effective and high-quality code.
+In-depth Analysis and Source Code:
+
+To help you better grasp how OOP is used in actual Java programs, the course contains in-depth source code studies.
+Problems and Fixes:
+
+In order to reinforce learning and provide practical experience with implementing OOP principles in Java, the course offers challenges and solutions.
+Covered Skills:
+Programming that is object-oriented (OOP) Ideas include abstraction, encapsulation, polymorphism, and inheritance.
+Java programming: Making use of OOP's built-in features to write code that is clearer and more effective.
+
+
+
+
+
+
+
+
+
+
+
+2)
+Example of Two Different Access Modifiers
+Public Access Modifier:
+Justification: Any other class or package can access a class or a class member (method/variable) thanks to the public access qualifier. The least restrictive access level is this one.
+When to Employ: The public modifier is used when you want the class member to be available to everyone in your package or project. If you have a method that determines a shape's area, for instance, and you want other classes to be able to use it, you would declare it public.
+
+Private Access Modifier:
+Just inside the same class, the private access modifier limits access to the class or class member. It is not immediately accessible by any other class, including subclasses.
+When to Apply: When you wish to encapsulate the data and stop other classes from directly changing the state, you would use private. For instance, you would use private to make sure that only methods in the same class could change an internal variable that held a user's password.
+
+
+3)
+Benefits of Inheritance in the Example of an Analyst and an Employee
+
+A subclass (like Analyst) can inherit common behaviors (like methods) and properties from a parent class (like Employee) through inheritance. Code reuse is encouraged and redundancy is decreased as a result.
+Benefits for Analysts and Workers:
+It is possible for Analyst to inherit properties and methods from the Employee class rather than declaring them in both classes if the two types share common attributes like name, employeeID, and getSalary(). This makes sure that just the Employee class needs to be updated or modified for typical behavior.
+Also, it lets you use the general Employee behaviors without duplicating code while defining specific Analyst behavior (e.g., methods like analyzeData()).
+
+
+	4)
+
+// Parent class
+public class Shape {
+    private int numberOfSides;
+
+    // Constructor to initialize the number of sides
+    public Shape(int sides) {
+        this.numberOfSides = sides;
+    }
+
+    // Getter method for numberOfSides
+    public int getNumberOfSides() {
+        return numberOfSides;
+    }
+
+    // Setter method for numberOfSides
+    public void setNumberOfSides(int sides) {
+        this.numberOfSides = sides;
+    }
+}
+
+// Subclass of Shape
+class Circle extends Shape {
+
+    // Constructor calling the parent class constructor using super
+    public Circle() {
+        // A circle has no sides, so passing 0 for the number of sides
+        super(0);  
+    }
+
+    // Additional Circle-specific methods can be added here
+}
+
+// Subclass of Shape
+class Rectangle extends Shape {
+
+    // Constructor calling the parent class constructor using super
+    public Rectangle() {
+        // A rectangle has 4 sides
+        super(4); 
+    }
+
+    // Additional Rectangle-specific methods can be added here
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Circle object
+        Circle circle = new Circle();
+        
+        // Create a Rectangle object
+        Rectangle rectangle = new Rectangle();
+        
+        // Output the number of sides using the getNumberOfSides() method
+        System.out.println("Circle number of sides: " + circle.getNumberOfSides()); // Output: 0
+        System.out.println("Rectangle number of sides: " + rectangle.getNumberOfSides()); // Output: 4
+    }
+}
+
+
