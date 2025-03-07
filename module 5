@@ -1,0 +1,192 @@
+1)
+Unit Testing Importance:
+Essential for developing stable applications.
+Helps ensure code works as expected and prevents regressions.
+JUnit Framework:
+The primary unit testing framework for Java.
+Used to write and run unit tests in Java applications.
+Trainer and Developer:
+Course led by Maaike van Putten, a trainer and developer.
+Teaches how to test Java code effectively.
+What You’ll Learn:
+Unit Testing Basics:
+Introduction to unit testing and its advantages.
+JUnit Setup:
+How to set up JUnit and run your first test.
+Writing Basic Tests:
+Understanding JUnit annotations like @Test, @BeforeEach, @AfterEach.
+Using JUnit Write and JUnit DisplayName for clearer tests.
+Advanced JUnit Features:
+Dependency Injection:
+How to use dependency injection in tests.
+Parameterized Tests:
+Writing tests that can run with different parameters.
+Timeouts:
+Ensuring tests don't hang indefinitely.
+Next Steps:
+Preparing Code for Testing:
+Making your code testable.
+Best Practices:
+Guidelines for writing effective unit tests.
+Mockito Overview:
+Brief introduction to using Mockito for mocking in unit tests.
+
+
+2)
+Agile Approach:
+Focuses on continuous delivery and improvement.
+Emphasizes collaboration and openness to change.
+Helps improve productivity and the quality of the final product.
+Course Overview:
+Fundamentals of agile for software developers.
+Why agile is ideal for software engineering.
+Instructor:
+Shashi Shekhar, who discusses agile principles from a developer’s perspective.
+Key Topics Covered:
+Agile Principles:
+Core principles of the agile methodology.
+Scrum Framework:
+Scrum principles, roles, and events.
+How scrum is implemented in software development.
+Kanban:
+Complementing scrum with Kanban for better flow and efficiency.
+Extreme Programming (XP):
+Deep dive into XP.
+How to apply XP for more effective and efficient teamwork.
+Learning Objectives:
+Agile Principles:
+Understanding the fundamental principles of agile.
+Scrum:
+Scrum roles, artifacts, and rules explained.
+Myths & Misconceptions:
+Identifying common myths about agile approaches.
+Agile Software Engineering Techniques:
+Key techniques for software developers using agile.
+Extreme Programming (XP):
+Overview of XP and test-driven development (TDD).
+Kanban for Developers:
+Using Kanban to manage workflow in development.
+Limiting Work in Progress (WIP):
+Managing WIP to improve productivity and focus.
+Scaling Agile Teams:
+Techniques for scaling agile output effectively.
+Practical Examples:
+Shashi Shekhar shares real-world examples to reinforce concepts.
+
+
+3)
+# calculator.py
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Cannot divide by zero.")
+        return a / b
+# test_calculator.py
+import unittest
+from calculator import Calculator
+
+class TestCalculator(unittest.TestCase):
+
+    def setUp(self):
+        self.calc = Calculator()
+
+    def test_add(self):
+        self.assertEqual(self.calc.add(2, 3), 5)
+        self.assertEqual(self.calc.add(-1, 1), 0)
+        self.assertEqual(self.calc.add(0, 0), 0)
+
+    def test_subtract(self):
+        self.assertEqual(self.calc.subtract(10, 5), 5)
+        self.assertEqual(self.calc.subtract(2, 3), -1)
+        self.assertEqual(self.calc.subtract(-1, -1), 0)
+
+    def test_multiply(self):
+        self.assertEqual(self.calc.multiply(2, 3), 6)
+        self.assertEqual(self.calc.multiply(-1, 5), -5)
+        self.assertEqual(self.calc.multiply(0, 5), 0)
+
+    def test_divide(self):
+        self.assertEqual(self.calc.divide(6, 2), 3)
+        self.assertEqual(self.calc.divide(-6, 2), -3)
+
+        # Test division by zero
+        with self.assertRaises(ValueError):
+            self.calc.divide(6, 0)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+
+
+# string_utils.py
+class StringUtils:
+    @staticmethod
+    def reverse_string(s):
+        return s[::-1]
+
+    @staticmethod
+    def to_uppercase(s):
+        return s.upper()
+
+    @staticmethod
+    def is_palindrome(s):
+        return s == s[::-1]
+
+# test_string_utils.py
+import unittest
+from string_utils import StringUtils
+
+class TestStringUtils(unittest.TestCase):
+
+    def test_reverse_string(self):
+        self.assertEqual(StringUtils.reverse_string("hello"), "olleh")
+        self.assertEqual(StringUtils.reverse_string("world"), "dlrow")
+        self.assertEqual(StringUtils.reverse_string("a"), "a")
+        self.assertEqual(StringUtils.reverse_string(""), "")
+
+    def test_to_uppercase(self):
+        self.assertEqual(StringUtils.to_uppercase("hello"), "HELLO")
+        self.assertEqual(StringUtils.to_uppercase("world"), "WORLD")
+        self.assertEqual(StringUtils.to_uppercase("123"), "123")
+
+    def test_is_palindrome(self):
+        self.assertTrue(StringUtils.is_palindrome("madam"))
+        self.assertFalse(StringUtils.is_palindrome("hello"))
+        self.assertTrue(StringUtils.is_palindrome("a"))
+        self.assertTrue(StringUtils.is_palindrome(""))
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+Code Overview: The Calculator class provides methods to perform basic arithmetic operations. The add, subtract, multiply, and divide methods take two arguments a and b and return the result of the operation.
+Unit Tests: The unit tests ensure that each method of the Calculator class works correctly.
+setUp: This method is called before each test method to create a new instance of the Calculator class, ensuring that each test runs independently.
+Test Add: Verifies that the add method correctly adds two numbers.
+Test Subtract: Verifies that the subtract method correctly subtracts one number from another.
+Test Multiply: Verifies that the multiply method correctly multiplies two numbers.
+Test Divide: Verifies that the divide method correctly divides two numbers and raises a ValueError when trying to divide by zero.
+Code Overview: The StringUtils class provides three static methods:
+reverse_string: Reverses the input string.
+to_uppercase: Converts the input string to uppercase.
+is_palindrome: Checks if the input string is a palindrome (i.e., it reads the same forwards and backwards).
+Unit Tests: The unit tests verify the correctness of these methods.
+Test Reverse String: Verifies that the reverse_string method reverses a string correctly, including edge cases like single characters and empty strings.
+Test To Uppercase: Verifies that the to_uppercase method correctly converts a string to uppercase.
+Test Palindrome: Verifies that the is_palindrome method correctly identifies palindromes, including edge cases like single characters and empty strings.
+
+
