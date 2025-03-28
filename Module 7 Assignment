@@ -1,0 +1,111 @@
+
+
+public class UserRegistrationForm {
+
+    public static void main(String[] args) {
+        // Create the main frame for the registration form
+        JFrame frame = new JFrame("User Registration Form");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+
+        // Set a simple layout manager
+        frame.setLayout(new GridLayout(5, 2, 10, 10));
+
+        // Create labels and text fields for user input
+        JLabel nameLabel = new JLabel("Name:");
+        JTextField nameField = new JTextField();
+
+        JLabel emailLabel = new JLabel("Email:");
+        JTextField emailField = new JTextField();
+
+        JLabel passwordLabel = new JLabel("Password:");
+        JPasswordField passwordField = new JPasswordField();
+
+        JLabel confirmPasswordLabel = new JLabel("Confirm Password:");
+        JPasswordField confirmPasswordField = new JPasswordField();
+
+        // Create buttons for Submit and Clear
+        JButton submitButton = new JButton("Submit");
+        JButton clearButton = new JButton("Clear");
+
+        // Add the components to the frame
+        frame.add(nameLabel);
+        frame.add(nameField);
+
+        frame.add(emailLabel);
+        frame.add(emailField);
+
+        frame.add(passwordLabel);
+        frame.add(passwordField);
+
+        frame.add(confirmPasswordLabel);
+        frame.add(confirmPasswordField);
+
+        frame.add(submitButton);
+        frame.add(clearButton);
+
+        // Make the frame visible
+        frame.setVisible(true);
+
+        // Action for the "Submit" button
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Validate that none of the fields are empty
+                if (nameField.getText().isEmpty() || emailField.getText().isEmpty() ||
+                    passwordField.getPassword().length == 0 || confirmPasswordField.getPassword().length == 0) {
+                    JOptionPane.showMessageDialog(frame, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    // Check if the passwords match
+                    if (String.valueOf(passwordField.getPassword()).equals(String.valueOf(confirmPasswordField.getPassword()))) {
+                        // Show the entered information in a dialog box
+                        String message = "Name: " + nameField.getText() + "\n" +
+                                         "Email: " + emailField.getText() + "\n" +
+                                         "Password: " + String.valueOf(passwordField.getPassword());
+                        JOptionPane.showMessageDialog(frame, message, "Registration Details", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        // Show an error if the passwords do not match
+                        JOptionPane.showMessageDialog(frame, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+
+        // Action for the "Clear" button
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Clear all text fields
+                nameField.setText("");
+                emailField.setText("");
+                passwordField.setText("");
+                confirmPasswordField.setText("");
+            }
+        });
+    }
+}
+
+
+
+Explanation of the Components:
+Labels (JLabel):
+These are used to provide a textual description for each of the fields. Labels for "Name:", "Email:", "Password:", and "Confirm Password:" are created.
+Text Fields (JTextField and JPasswordField):
+JTextField is used for the Name and Email fields to accept normal text input.
+JPasswordField is used for the Password and Confirm Password fields to ensure the input is hidden (secure input).
+Buttons (JButton):
+The "Submit" button triggers the validation and displays the entered information.
+The "Clear" button resets all the text fields to empty.
+Layout:
+GridLayout is used to arrange the components in a simple 5x2 grid (5 rows and 2 columns), making the form clean and easy to read. The layout manager also adds space between the components.
+Validation:
+Empty field check: Before submission, it checks that all fields are filled. If any field is empty, it displays an error using JOptionPane.
+Password matching check: It compares the values of the "Password" and "Confirm Password" fields. If they do not match, an error message is shown.
+Dialogs:
+JOptionPane is used to display error messages or show the submitted data in a dialog box.
+How it works:
+When the Submit button is clicked, the program first checks if all fields are filled. If any field is empty, it shows an error message.
+It also ensures that the "Password" and "Confirm Password" fields match. If they don't match, an error message is displayed.
+If everything is valid, it displays a dialog with the entered information.
+The Clear button resets all fields, allowing the user to start over.
+
