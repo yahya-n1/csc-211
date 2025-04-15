@@ -1,0 +1,62 @@
+Inheritance: Common attributes and methods go in the Animal base class. Specific animals inherit from Animal and implement specific behavior.
+Composition: The Zoo class manages a collection of animals.
+Polymorphism: Each animal will override the speak() method to provide animal-specific behavior. The Zoo can loop through its animals and call speak() on them — it doesn't need to know which specific type they are.
+🧱 Class Structure
+Animal – base class
+Lion, Elephant, Monkey – subclasses of Animal
+Zoo – contains a list of animals (composition)
+Demonstration in main() function
+💻 Code
+python
+Copy
+Edit
+# Base class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        raise NotImplementedError("Subclasses should implement this method")
+
+# Subclasses (inheritance & polymorphism)
+class Lion(Animal):
+    def speak(self):
+        return f"{self.name} the Lion roars!"
+
+class Elephant(Animal):
+    def speak(self):
+        return f"{self.name} the Elephant trumpets!"
+
+class Monkey(Animal):
+    def speak(self):
+        return f"{self.name} the Monkey chatters!"
+
+# Composition
+class Zoo:
+    def __init__(self):
+        self.animals = []  # A zoo has animals
+
+    def add_animal(self, animal: Animal):
+        self.animals.append(animal)
+
+    def make_all_speak(self):
+        for animal in self.animals:
+            print(animal.speak())  # Polymorphism at work
+
+# Main function
+def main():
+    zoo = Zoo()
+
+    simba = Lion("Simba")
+    dumbo = Elephant("Dumbo")
+    george = Monkey("George")
+
+    zoo.add_animal(simba)
+    zoo.add_animal(dumbo)
+    zoo.add_animal(george)
+
+    print("All animals in the zoo speak:")
+    zoo.make_all_speak()
+
+if __name__ == "__main__":
+    main()
