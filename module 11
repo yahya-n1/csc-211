@@ -1,0 +1,404 @@
+Functional Programming
+
+Key Concepts: Mastering Lambdas and Streams in Java
+Lambdas and streams are key elements in modern Java programming, particularly for developers who want to write clean, concise, and maintainable code. In this course, you will dive deep into how these concepts work, why they're so valuable, and how to effectively apply them in your day-to-day development.
+Here’s an overview of the essential learning objectives and skills you’ll master:
+
+Learning Objectives
+Master the Essentials of Lambdas and Streams
+
+
+Understand what lambdas and streams are in Java.
+
+
+Learn why these features are powerful and important in modern Java development.
+
+
+Understand the fundamental differences between traditional Java code and functional-style Java code that uses lambdas and streams.
+
+
+Put these concepts into practice through real-world examples and coding exercises.
+
+
+Leverage Lambdas for Inline Functions
+
+
+Lambdas allow you to write functions directly in places where you'd normally pass anonymous classes. This helps to eliminate boilerplate code and increase readability.
+
+
+Example of a lambda expression:
+
+ java
+CopyEdit
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(name -> System.out.println(name));
+
+
+Instead of defining a separate class to handle the action, a lambda expression is used inline for quick and efficient operations.
+
+
+Use Preexisting Functional Interfaces
+
+
+Java provides functional interfaces (like Runnable, Predicate, Function, etc.) that can be leveraged in lambdas to simplify coding.
+
+
+Instead of creating custom interfaces, use preexisting ones to write clean and efficient code:
+
+ java
+CopyEdit
+Predicate<String> startsWithA = (str) -> str.startsWith("A");
+System.out.println(startsWithA.test("Alice")); // Output: true
+
+
+Use the Stream API for Collection Processing
+
+
+The Stream API in Java allows you to express operations on collections in a declarative manner.
+
+
+Streams provide a sequence of elements that can be processed in parallel or sequentially, enabling powerful operations like filtering, sorting, mapping, and reducing.
+
+
+Example of using streams:
+
+ java
+CopyEdit
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+List<String> filteredNames = names.stream()
+                                  .filter(name -> name.length() > 3)
+                                  .collect(Collectors.toList());
+System.out.println(filteredNames); // Output: [Alice, Charlie]
+
+
+Perform Basic and Advanced Operations with Streams
+
+
+Learn to use streams to perform a wide variety of tasks:
+
+
+Listing: Display or process items in a collection.
+
+
+Filtering: Extract elements based on certain conditions (like filter()).
+
+
+Sorting: Sort elements using natural or custom order (like sorted()).
+
+
+Mapping: Transform elements of a collection (like map()).
+
+
+Limiting: Limit the number of elements (like limit()).
+
+
+Finding: Find elements that meet a condition (like findFirst() or anyMatch()).
+
+
+Comparing: Compare elements based on specific criteria (like Comparator).
+
+
+Collecting: Collect the results of a stream into a collection (like collect()).
+
+
+
+Skills You Will Cover:
+Lambda Expressions:
+
+
+Writing concise, inline functions.
+
+
+Understanding the syntax and structure of lambda expressions.
+
+
+Reducing the need for boilerplate code by using lambdas instead of anonymous classes.
+
+
+Stream API Operations:
+
+
+Stream Creation: How to create a stream from a collection using .stream().
+
+
+Intermediate Operations: Operations like filter(), map(), sorted(), and distinct() that return a new stream and allow you to chain multiple operations together.
+
+
+Terminal Operations: Operations like collect(), forEach(), reduce(), and count() that trigger the computation and consume the stream.
+
+
+Functional Interfaces:
+
+
+Understanding how functional interfaces like Consumer, Supplier, Function, Predicate, and UnaryOperator fit into the functional programming paradigm.
+
+
+Using them to simplify code without needing to write custom interface implementations.
+
+
+Performance Considerations:
+
+
+Parallel Streams: How to use parallel streams to improve performance by processing elements concurrently.
+
+
+When to use sequential vs. parallel streams based on the type of operations and the collection size.
+
+
+Advanced Stream Operations:
+
+
+Reduction: Using reduce() to combine elements of a stream into a single result, like summing or multiplying numbers.
+
+
+Grouping and Partitioning: Using Collectors.groupingBy() or Collectors.partitioningBy() to group data based on some criteria.
+
+
+FlatMap: Flattening a stream of collections into a single stream using flatMap().
+
+
+
+Examples of Stream Operations:
+Filter and Map:
+
+ java
+CopyEdit
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+List<String> longNames = names.stream()
+                              .filter(name -> name.length() > 3)
+                              .map(String::toUpperCase)
+                              .collect(Collectors.toList());
+System.out.println(longNames); // Output: [ALICE, CHARLIE]
+
+
+Reduce:
+
+ java
+CopyEdit
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
+int sum = numbers.stream()
+                 .reduce(0, (a, b) -> a + b); // Summing the numbers
+System.out.println(sum); // Output: 10
+
+
+Sorting:
+
+ java
+CopyEdit
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+List<String> sortedNames = names.stream()
+                                .sorted()
+                                .collect(Collectors.toList());
+System.out.println(sortedNames); // Output: [Alice, Bob, Charlie, David]
+
+
+
+Takeaways:
+By mastering lambdas and streams in Java, you will:
+Write concise and efficient code by leveraging lambda expressions.
+
+
+Process collections of objects more effectively with the Stream API.
+
+
+Utilize functional interfaces to simplify code and avoid unnecessary class declarations.
+
+
+Perform complex operations on collections with ease, using methods like filter(), map(), reduce(), and collect().
+
+Java: Lambdas and Streams
+Functional Programming with Lambdas and Streams in Java: Hands-on Practice
+In this course, you'll master functional programming in Java, focusing on lambdas and streams, which are pivotal in modern Java development. Functional programming promotes writing clean, concise, and maintainable code. This is especially useful in Java where lambdas and streams are now ubiquitous.
+Through hands-on coding exercises, you'll learn how to:
+Write lambda expressions and perform operations inline without the need for defining a separate class.
+
+
+Use streams to manipulate collections, including filtering, sorting, and mapping.
+
+
+Work with test-driven development (TDD) to ensure your code is robust and functional.
+
+
+Learning Objectives
+Master the Essentials of Lambdas and Streams
+
+
+Understand the fundamentals of lambdas and streams.
+
+
+Learn why these concepts are important and how they simplify everyday tasks in Java.
+
+
+Implement these concepts into your workflow as a professional Java developer.
+
+
+Leverage Lambdas for Inline Functions
+
+
+Lambdas allow you to write concise, inline functions for quick operations, reducing boilerplate code.
+
+
+Example:
+
+ java
+CopyEdit
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(name -> System.out.println(name));
+
+
+Use Preexisting Functional Interfaces
+
+
+Java offers several built-in functional interfaces like Function, Consumer, Predicate, and Supplier that can be used in conjunction with lambdas to simplify code.
+
+
+Example:
+
+ java
+CopyEdit
+Predicate<String> isNotEmpty = (str) -> !str.isEmpty();
+System.out.println(isNotEmpty.test("hello")); // Output: true
+
+
+Use the Stream API to Process Collections
+
+
+Streams provide a fluent API for processing data collections like lists and sets.
+
+
+You can filter, sort, and map elements from collections with ease using the Stream API.
+
+
+Example:
+
+ java
+CopyEdit
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> evenNumbers = numbers.stream()
+                                   .filter(num -> num % 2 == 0)
+                                   .collect(Collectors.toList());
+System.out.println(evenNumbers); // Output: [2, 4]
+
+
+Perform Basic and Advanced Stream Operations
+
+
+Learn how to perform common operations like filtering, sorting, mapping, reducing, and collecting data from streams.
+
+
+Example of mapping and sorting:
+
+ java
+CopyEdit
+List<String> planets = Arrays.asList("Earth", "Mars", "Venus", "Jupiter");
+List<String> sortedPlanets = planets.stream()
+                                   .map(String::toUpperCase)
+                                   .sorted()
+                                   .collect(Collectors.toList());
+System.out.println(sortedPlanets); // Output: [EARTH, JUPITER, MARS, VENUS]
+
+
+Hands-on Coding Exercises
+Writing Lambda Expressions
+ Practice writing lambda expressions to perform various tasks like sorting a list of numbers, filtering strings, or transforming objects. These exercises will help you get comfortable using lambda syntax and its features.
+
+
+Example Exercise: Write a lambda expression to filter out all numbers greater than 10 from a list.
+
+ java
+CopyEdit
+List<Integer> numbers = Arrays.asList(5, 12, 3, 19, 7);
+numbers.stream()
+       .filter(num -> num > 10)
+       .forEach(System.out::println);
+
+
+Creating and Manipulating Collections with Streams
+ Using Java's Stream API, perform advanced operations such as:
+
+
+Sorting a list of strings by length.
+
+
+Mapping a list of numbers into their square values.
+
+
+Collecting results into a set or list.
+
+
+Example Exercise: Create a list of planets and sort them by name.
+
+ java
+CopyEdit
+List<String> planets = Arrays.asList("Mercury", "Venus", "Earth", "Mars");
+planets.stream()
+       .sorted()
+       .forEach(System.out::println);
+
+
+Test-Driven Development (TDD)
+ Implement lambda expressions and stream operations while practicing test-driven development (TDD). Write unit tests that pass when your functional code works correctly.
+
+
+Example Exercise: Write a unit test to verify that a stream correctly filters numbers greater than 10 and returns a list of numbers greater than 10.
+
+ java
+CopyEdit
+List<Integer> numbers = Arrays.asList(5, 12, 3, 19, 7);
+List<Integer> filteredNumbers = numbers.stream()
+                                       .filter(num -> num > 10)
+                                       .collect(Collectors.toList());
+assert filteredNumbers.size() == 2;
+
+
+Working with Planets
+ Use streams to create, filter, and sort a list of planets by type and class. You can use lambdas to filter out planets based on their type or size, and sort them by a property like their distance from the sun.
+
+
+Example Exercise: Filter the planets that are of type "rocky" and sort them by their size:
+
+ java
+CopyEdit
+List<Planet> planets = Arrays.asList(new Planet("Earth", "rocky", 12742),
+                                     new Planet("Jupiter", "gas", 139820),
+                                     new Planet("Mars", "rocky", 6779));
+
+List<Planet> rockyPlanets = planets.stream()
+                                   .filter(p -> p.getType().equals("rocky"))
+                                   .sorted(Comparator.comparingInt(Planet::getSize))
+                                   .collect(Collectors.toList());
+
+rockyPlanets.forEach(p -> System.out.println(p.getName()));
+
+
+
+Advanced Functional Programming Concepts
+Partial Application and Currying
+ These advanced functional concepts allow you to create more modular and reusable code by pre-setting some arguments for functions or creating higher-order functions.
+
+
+Recursion and Memoization
+ Recursion allows you to solve problems by calling a function within itself. Memoization optimizes performance by caching results of expensive function calls and reusing them when needed.
+
+
+
+Summary of Key Takeaways
+By completing these hands-on coding exercises, you will:
+Master lambda expressions and streams to write more concise, expressive, and maintainable code.
+
+
+Use the Stream API to manipulate and process collections efficiently.
+
+
+Understand how to apply test-driven development (TDD) in functional programming.
+
+
+Leverage advanced stream operations and functional programming techniques like recursion, partial application, and memoization to optimize and refactor your code.
+
+
+
+
+
+
+
+
