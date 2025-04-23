@@ -1,0 +1,52 @@
+ Abstract Class Example
+java
+Copy
+Edit
+abstract class Animal {
+    abstract void makeSound();  // Abstract method
+
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark!");
+    }
+}
+📝 Explanation:
+
+Animal is an abstract class.
+
+It contains one abstract method makeSound() and one concrete method sleep().
+
+Dog extends Animal and must implement makeSound().
+
+Interface Example
+java
+Copy
+Edit
+interface Flyable {
+    void fly();  // implicitly public and abstract
+}
+
+class Bird implements Flyable {
+    public void fly() {
+        System.out.println("Flying high!");
+    }
+}
+ Explanation:
+
+Flyable is an interface.
+
+Bird implements the interface and provides the behavior of fly().
+
+ Abstract Class vs Interface — When to Use?
+
+Feature	Abstract Class	Interface
+Can have method implementations	 Yes	 (Java 7 and earlier);  (Java 8+ with default methods)
+Can have instance variables Yes Only static final (constants)
+Multiple inheritance No (only one abstract class) Yes (can implement multiple interfaces)
+Constructor support Yes No
+Use when...	Sharing code or state	Sharing capabilities or contracts
