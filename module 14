@@ -1,0 +1,39 @@
+1. What is a Generic?
+A generic is a feature in programming (especially in languages like Java, C#, and C++) that allows classes, interfaces, and methods to operate on typed parameters without specifying the exact data type until the code is used.
+
+Example in Java:
+
+java
+Copy
+Edit
+List<String> list = new ArrayList<>();
+Here, List<T> is a generic interface, and T is replaced with String when used. This ensures type safety, code reuse, and compile-time checking.
+
+2. When Should Recursion Be Avoided?
+Recursion is elegant but can be problematic in certain scenarios. You should avoid it when:
+
+Stack overflow risk: Deep recursive calls (e.g., processing large trees or deep lists) can exhaust the call stack.
+
+Tail call optimization is not available: Many languages (like Java) don't optimize tail calls, leading to performance issues.
+
+Iteration is simpler and more efficient: For problems like traversing a simple loop or large datasets (e.g., summing array elements), a loop is often better.
+
+Stateful operations: Managing state across recursive calls can be error-prone and hard to debug.
+
+Use iteration or explicit stacks/queues instead when these issues arise.
+
+3. When Would We Prefer Throwable Over Try/Catch?
+This is likely asking about throwing Throwable directly or dealing with error signaling differently than using try/catch.
+
+We prefer working with Throwable (or its subtypes Error or Exception) without immediate try/catch in these situations:
+
+Propagating exceptions upward: If you can't handle the error where it occurs, rethrowing the Throwable or its subtype (often via throws clause) is cleaner than catching and wrapping it.
+
+Custom frameworks or logging: Sometimes, frameworks log or reprocess Throwable instances globally.
+
+Low-level APIs and system errors: Certain low-level operations throw Error (a subtype of Throwable, e.g., OutOfMemoryError) that shouldn't be caught, as they represent fatal issues.
+
+Functional-style programming: You may want to return a Throwable from a method instead of using try/catch (e.g., in reactive streams or monadic error handling).
+
+That said, prefer catching specific exceptions, not general Throwable, unless there's a compelling reason.
+
